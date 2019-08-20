@@ -5,32 +5,40 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 const header = React.memo( props => {
   return (
      <div>
-     <div className="container">
-			<div className="row">
+     <div className="container" >
+			<div className="row" style={{paddingTop:"20px",backgroundColor:"#000", height:"120px",}}>
 				
 				<div className="col-md-2 text-center">
-					<span style={{color: "#68d1ef" , fontWeight: "600", fontSize: "20px"}}>Atmolit</span>
+					<span style={{color: "#ffffff" , fontWeight: "600", fontSize: "20px"}}>Atmolit</span>
 				</div>
 
 				<div className="col-md-8 text-center">
+				<span style={{color: "#ffffff" , fontWeight: "600", fontSize: "20px", marginRight: "15px"}}>
 					<a href="#">
+						<FontAwesomeIcon icon="plus-circle" color="#ffffff" size="md"/>
+					</a>
+			   </span>
 
-                  <FontAwesomeIcon icon="plus-circle" color="#68d1ef" size="md"/>
-               </a>
-
+				
+				<span style={{color: "#ffffff" , fontWeight: "600", fontSize: "20px", marginRight: "15px"}}>
 					<a href="#">
-                  <FontAwesomeIcon icon="bell" color="#68d1ef" size="md" />
+				  		<FontAwesomeIcon icon="bell" color="#ffffff" size="md" />
+				  	</a>
+				</span>
+               
+
+				
+				<span style={{color: "#ffffff" , fontWeight: "600", fontSize: "20px", marginRight: "15px"}}>
+				<a href="#">
+				  <FontAwesomeIcon icon="user" color="#ffffff" size="md"/>
+				</a>
+				</span>
+
+				<span style={{color: "#ffffff" , fontWeight: "600", fontSize: "20px", marginLeft: "15px"}}>
+				<a href="#">
+					Login
                </a>
-
-					<a href="#">
-
-                  <FontAwesomeIcon icon="user" color="#68d1ef" size="md"/>
-               </a>
-
-               <a href="#">
-
-                  <FontAwesomeIcon icon="sign-in-alt" color="#68d1ef" size="md"/>
-               </a>
+			   </span>
 				</div>
 
 				<div className="col-md-2 text-center">

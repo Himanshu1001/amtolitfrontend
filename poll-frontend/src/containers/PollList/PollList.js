@@ -4,7 +4,7 @@ class PollList extends Component {
   render() {
   	return (
        <div>
-       Polllist 
+       
        </div>
   		)
   }
