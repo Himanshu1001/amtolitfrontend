@@ -1,18 +1,34 @@
-import React from 'react';
-import Layout from "./containers/Layout/Layout";
+import React, { Fragment } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faUser, faPlusCircle, faSignInAlt, faCopyright} from "@fortawesome/free-solid-svg-icons";
+import {
+  faBell,
+  faUser,
+  faPlusCircle,
+  faSignInAlt,
+  faCopyright
+} from "@fortawesome/free-solid-svg-icons";
 
+// Components
+import Routing from "./containers/Routing";
+import Layout from "./containers/Layout/Layout";
 
-function App() {
+// CSS
+import "./App.css";
+
+const App = () => {
   return (
-    <div >
-      <Layout/>
-    </div>
+    <Router>
+      <div className="App">
+        <Routing />
+        {/* <Layout /> */}
+      </div>
+    </Router>
   );
-}
+};
 
-library.add( faBell, faUser, faPlusCircle, faSignInAlt, faCopyright )
+library.add(faBell, faUser, faPlusCircle, faSignInAlt, faCopyright);
 
 export default App;
