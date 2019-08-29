@@ -4,6 +4,8 @@ import axios from "axios";
 // cONFIG
 import config from "../../config";
 
+import "./Login.scss";
+
 const Login = props => {
   const [loginData, setLoginData] = useState({
     username: "",

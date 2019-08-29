@@ -7,6 +7,7 @@ import Home from "./HomePage";
 import Register from "./Register";
 import Login from "./Login";
 import QuestionPage from "./QuestionPage";
+import CreateQuestionPage from "./CreateQuestionPage";
 
 const BaseContainer = () => {
   const routes = [
@@ -21,6 +22,13 @@ const BaseContainer = () => {
       path: "/question/:questionId",
       exact: true,
       component: withRouter(QuestionPage)
+    },
+
+    {
+      isPrivate: false,
+      path: "/create-question",
+      exact: true,
+      component: withRouter(CreateQuestionPage)
     },
     {
       isPrivate: false,
