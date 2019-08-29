@@ -4,18 +4,24 @@ import moment from "moment";
 
 // COmponents
 import QuestionBlock from "../../components/QuestionBlock";
-import Choice from "../../components/Choice";
 
 import "./QuestionBlock.scss";
+import Polls from "./Polls";
+import Answers from "./Answers";
 
 const QuestionsListItem = ({ item }) => {
   const [polls, setPolls] = useState([]);
+  // const [voted, setVoted] = useState(false);
 
   const fetchOptions = async id => {
     let { data } = await axios.get(`http://localhost:8000/choice/?poll=${id}`);
     console.log("poll data:::", data);
 
     setPolls(data);
+  };
+
+  const handleSubmit = () => {
+    console.log("aaa");
   };
 
   useEffect(() => {
@@ -43,14 +49,11 @@ const QuestionsListItem = ({ item }) => {
       <div className="QuestionBlock_question">{item.question_text}</div>
 
       <div className="QuestionBlock_choice">
-        {polls && polls.length > 0
-          ? polls.map(v => (
-              <div key={v.id}>
-                <span className="Choice">{v.choice_text}</span>
-                <span className="">{}</span>
-              </div>
-            ))
-          : ""}
+        {polls && polls.length > 0 ? (
+          <Polls polls={polls} setPolls={setPolls} />
+        ) : (
+          <Answers questionId={item.id} />
+        )}
       </div>
     </QuestionBlock>
   );

@@ -27,3 +27,7 @@ code {
 * a:hover {
   text-decoration: none;
 }
+
+* .clean {
+  clear: both;
+}

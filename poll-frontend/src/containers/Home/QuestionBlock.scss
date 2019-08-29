@@ -25,20 +25,59 @@
   .QuestionBlock_choice {
     margin: 6px 43px;
 
-    .Choice {
+    .QuestionBlock_choice-item {
       background-color: #ffffff87;
       margin-bottom: 4px;
       transition: 0.2s all;
-      width: calc(100% - 35px);
       padding: 4px 12px;
       border-radius: 25px;
       margin-right: 4px;
       cursor: pointer;
+      display: inline-block;
+
+      &.Choice {
+        width: calc(100% - 50px);
+        float: left;
+      }
+
+      &.Vote {
+        width: 28px;
+        float: right;
+        padding: 0px;
+        text-align: center;
+
+        img {
+          width: 75%;
+        }
+      }
 
       &:hover {
         background-color: #ffffffc4;
       }
     }
+
+    // .Choice {
+    //   background-color: #ffffff87;
+    //   margin-bottom: 4px;
+    //   transition: 0.2s all;
+    //   width: calc(100% - 35px);
+    //   padding: 4px 12px;
+    //   border-radius: 25px;
+    //   margin-right: 4px;
+    //   cursor: pointer;
+    //   display: inline-block;
+
+    //   &:hover {
+    //     background-color: #ffffffc4;
+    //   }
+    // }
+
+    // .Vote {
+    //   height: 28px;
+    //   width: 28px;
+    //   display: inline-block;
+    //   background: red;
+    // }
   }
 
   .separator {
