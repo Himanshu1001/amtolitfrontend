@@ -33,7 +33,7 @@ const Polls = ({ polls, setPolls }) => {
       <span className="QuestionBlock_choice-item Vote">
         {!voted ? (
           <img
-            src="thumbs-up-64.png"
+            src="/thumbs-up-64.png"
             data-voteid={v.id}
             data-votes={v.votes}
             alt="vote"

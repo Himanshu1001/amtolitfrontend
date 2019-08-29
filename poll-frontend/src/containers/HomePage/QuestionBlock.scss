@@ -1,6 +1,14 @@
 .QuestionBlock {
   background-color: #fc6d52;
 
+  .heading {
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 4px;
+    margin-top: 12px;
+  }
+
   .QuestionBlock_question-details {
     font-size: 0.85em;
     color: #ffffff87;
@@ -25,6 +33,10 @@
   .QuestionBlock_choice {
     margin: 6px 43px;
 
+    .Button--wrapper {
+      margin: 12px 0;
+    }
+
     .QuestionBlock_choice-item {
       background-color: #ffffff87;
       margin-bottom: 4px;
@@ -41,13 +53,13 @@
       }
 
       &.Vote {
-        width: 28px;
+        width: 40px;
         float: right;
         padding: 0px;
         text-align: center;
 
         img {
-          width: 75%;
+          width: 60%;
         }
       }
 
@@ -56,31 +68,30 @@
       }
     }
 
-    // .Choice {
-    //   background-color: #ffffff87;
-    //   margin-bottom: 4px;
-    //   transition: 0.2s all;
-    //   width: calc(100% - 35px);
-    //   padding: 4px 12px;
-    //   border-radius: 25px;
-    //   margin-right: 4px;
-    //   cursor: pointer;
-    //   display: inline-block;
-
-    //   &:hover {
-    //     background-color: #ffffffc4;
-    //   }
-    // }
-
-    // .Vote {
-    //   height: 28px;
-    //   width: 28px;
-    //   display: inline-block;
-    //   background: red;
-    // }
+    .Answer {
+      background-color: #ffffff87;
+      margin-bottom: 4px;
+      transition: 0.2s all;
+      padding: 4px 12px;
+      border-radius: 25px;
+      margin-right: 4px;
+      cursor: pointer;
+    }
   }
 
   .separator {
     margin: 0 4px;
+  }
+
+  .QuestionBlock_share {
+    margin: 0 40px;
+
+    .SocialMediaShareButton {
+      vertical-align: top;
+      display: inline-block;
+      margin-right: 8px;
+      text-align: center;
+      cursor: pointer;
+    }
   }
 }

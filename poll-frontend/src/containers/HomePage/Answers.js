@@ -1,5 +1,8 @@
 import React, { Fragment, useState } from "react";
 import axios from "axios";
+import Button from "../../components/Button/Button";
+import Alert from "../../components/Alert";
+import Textarea from "../../components/Textarea";
 
 const Answers = ({ questionId }) => {
   const [answer, setAnswer] = useState("");
@@ -37,38 +40,47 @@ const Answers = ({ questionId }) => {
 
   return (
     <Fragment>
-      <button type="button" onClick={handleShowAnswers}>
-        Show Answers
-      </button>
-      <button type="button" onClick={handleAddAnswer}>
-        Answer
-      </button>
+      <div className="Button--wrapper">
+        <Button type="button" onClick={handleShowAnswers}>
+          Show Answers
+        </Button>
+        <Button type="button" onClick={handleAddAnswer}>
+          Answer
+        </Button>
+      </div>
 
       {addAnswer === 2 ? (
-        <p>Your answer will be displayed after approval from the admin</p>
+        <Alert>
+          Your answer will be displayed after approval from the admin
+        </Alert>
       ) : (
         ""
       )}
 
       {addAnswer === 1 ? (
         <form onSubmit={handleAnswerSubmit}>
-          <textarea
+          <Textarea
             onChange={({ target }) => setAnswer(target.value)}
             value={answer}
-          ></textarea>
-          <button type="submit">Submit</button>
+          ></Textarea>
+          <Button type="submit">Submit</Button>
         </form>
       ) : (
         ""
       )}
 
-      {answers && answers.length
-        ? answers.map(v => (
+      {answers && answers.length ? (
+        <Fragment>
+          <p className="heading">Answers</p>
+          {answers.map(v => (
             <div key={v.id} className="Answer">
               {v.answer}
             </div>
-          ))
-        : ""}
+          ))}
+        </Fragment>
+      ) : (
+        ""
+      )}
     </Fragment>
   );
 };

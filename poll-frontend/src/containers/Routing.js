@@ -3,9 +3,10 @@ import { Route, Switch } from "react-router-dom";
 import { withRouter } from "react-router";
 
 // Pages
-import Home from "./Home";
+import Home from "./HomePage";
 import Register from "./Register";
 import Login from "./Login";
+import QuestionPage from "./QuestionPage";
 
 const BaseContainer = () => {
   const routes = [
@@ -14,6 +15,12 @@ const BaseContainer = () => {
       path: "/",
       exact: true,
       component: withRouter(Home)
+    },
+    {
+      isPrivate: false,
+      path: "/question/:questionId",
+      exact: true,
+      component: withRouter(QuestionPage)
     },
     {
       isPrivate: false,
