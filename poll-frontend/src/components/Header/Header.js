@@ -2,7 +2,14 @@ import React from "react";
 import classes from "./Header.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { deleteCookie } from "../../helper";
+
 const header = React.memo(props => {
+  const handleLogout = () => {
+    deleteCookie("auth");
+    window.location.href = "/login";
+  };
+
   return (
     <div>
       <div className="container">
@@ -71,6 +78,18 @@ const header = React.memo(props => {
               }}
             >
               <a href="#">Login</a>
+            </span>
+
+            <span
+              style={{
+                color: "#ffffff",
+                fontWeight: "600",
+                fontSize: "20px",
+                marginLeft: "15px"
+              }}
+              onClick={handleLogout}
+            >
+              <a href="#">Logout</a>
             </span>
           </div>
 

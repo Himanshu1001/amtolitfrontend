@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Redirect, Link } from "react-router-dom";
 
 // cONFIG
 import config from "../../config";
+import { getCookie } from "../../helper";
+
+// Components
 import OtpPannel from "./OtpPannel";
 import "./Register.scss";
+import Alert from "../../components/Alert";
 
 const Register = props => {
   const [registerData, setregisterData] = useState({
@@ -17,6 +22,7 @@ const Register = props => {
   });
 
   const [otpPannel, setOtpPannel] = useState(false);
+  const [otpDetail, setOtpDetail] = useState("");
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -32,6 +38,7 @@ const Register = props => {
     console.log("data:::", data);
     if (data.status) {
       setOtpPannel(true);
+      setOtpDetail(data.detail);
     }
   };
 
@@ -65,98 +72,118 @@ const Register = props => {
     }
   };
 
+  if (getCookie("auth")) return <Redirect to="/create-question" />;
+
   return (
     <div className="root-container">
-    <div className="inner-container">
-    <div className="header">
-     Register</div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="">First Name</label><br/>
-          <input
-            type="text"
-            name="first_name"
-            className="login-input"
-            placeholder="Jack"
-            value={registerData.first_name}
-            onChange={handleChange}
-          />
-        </div><br/>
+      <div className="inner-container">
+        <div className="header">Register</div>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="">First Name</label>
+            <br />
+            <input
+              type="text"
+              name="first_name"
+              className="login-input"
+              placeholder="Jack"
+              value={registerData.first_name}
+              onChange={handleChange}
+            />
+          </div>
+          <br />
 
-        <div>
-          <label htmlFor="">Last Name</label><br/>
-          <input
-            type="text"
-            name="last_name"
-            className="login-input"
-            placeholder="Brown"
-            value={registerData.last_name}
-            onChange={handleChange}
-          />
-        </div><br/>
+          <div>
+            <label htmlFor="">Last Name</label>
+            <br />
+            <input
+              type="text"
+              name="last_name"
+              className="login-input"
+              placeholder="Brown"
+              value={registerData.last_name}
+              onChange={handleChange}
+            />
+          </div>
+          <br />
 
+          <div>
+            <label htmlFor="">Email</label>
+            <br />
+            <input
+              type="email"
+              name="email"
+              className="login-input"
+              placeholder="me@email.com"
+              value={registerData.email}
+              onChange={handleChange}
+            />
+          </div>
+          <br />
 
-        <div>
-          <label htmlFor="">Email</label><br/>
-          <input
-            type="email"
-            name="email"
-            className="login-input"
-            placeholder="me@email.com"
-            value={registerData.email}
-            onChange={handleChange}
-          />
-        </div><br/>
+          <div>
+            <label htmlFor="">Phone Number</label>
+            <br />
+            <input
+              type="text"
+              name="username"
+              className="login-input"
+              placeholder="Enter your phone number"
+              value={registerData.username}
+              onChange={handleChange}
+            />
+          </div>
+          <br />
 
+          <div>
+            <label htmlFor="">Password</label>
+            <br />
+            <input
+              type="password"
+              name="password"
+              className="login-input"
+              placeholder="Enter your password"
+              value={registerData.password}
+              onChange={handleChange}
+            />
+          </div>
+          <br />
 
-        <div>
-          <label htmlFor="">Phone Number</label><br/>
-          <input
-            type="text"
-            name="username"
-            className="login-input"
-            placeholder="Enter your phone number"
-            value={registerData.username}
-            onChange={handleChange}
-          />
-        </div><br/>
+          <div>
+            <label htmlFor="">Gender</label>
+            <br />
+            <select
+              className="login-input"
+              name="gender"
+              defaultValue=""
+              onChange={handleChange}
+            >
+              <option value="" defaultChecked disabled>
+                Choose Gender
+              </option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <br />
 
+          {otpDetail && <Alert>{otpDetail}</Alert>}
 
-        <div>
-          <label htmlFor="">Password</label><br/>
-          <input
-            type="password"
-            name="password"
-            className="login-input"
-            placeholder="Enter your password"
-            value={registerData.password}
-            onChange={handleChange}
-          />
-        </div><br/>
+          <button className="login-btn" type="submit">
+            Register
+          </button>
+        </form>
 
+        <br />
+        <Link to="/login">I am already registered</Link>
 
-        <div>
-          <label htmlFor="">Gender</label><br/>
-          <select  name="gender" defaultValue="" onChange={handleChange}>
-            <option value="" defaultChecked disabled>
-              Choose Gender
-            </option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
-        </div><br/>
-
-
-        <button className="login-btn" type="submit">Register</button>
-      </form>
-
-      {otpPannel ? (
-        <OtpPannel phoneNumber={registerData.username} sendData={sendData} />
-      ) : (
-        ""
-      )}
-     </div>
+        {otpPannel ? (
+          <OtpPannel phoneNumber={registerData.username} sendData={sendData} />
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };
