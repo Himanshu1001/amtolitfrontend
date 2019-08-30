@@ -32,24 +32,31 @@ const Login = props => {
   };
 
   return (
-    <div className="Login">
-      <h2>Login</h2>
+    <div className="root-container">
+    <div className="inner-container">
+     <div className="header">
+     Login</div>
+     <div className="box">
       <form onSubmit={handleSubmit}>
-        <div>
+      <div className="input-group">
+        
           <label htmlFor="">Phone Number</label>
           <input
             type="text"
+            className="login-input"
             name="username"
             placeholder="Enter your phone number"
             value={loginData.username}
             onChange={handleChange}
           />
         </div>
+      
 
-        <div>
+       <div className="input-group">
           <label htmlFor="">Password</label>
           <input
             type="password"
+            className="login-input"
             name="password"
             placeholder="Enter your password"
             value={loginData.password}
@@ -57,9 +64,11 @@ const Login = props => {
           />
         </div>
 
-        <button type="submit">Login</button>
+        <button className="login-btn" type="submit">Login</button>
       </form>
-    </div>
+      </div>
+      </div>
+      </div>
   );
 };
 
