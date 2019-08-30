@@ -8,6 +8,7 @@ import { getCookie } from "../../helper";
 
 // Components
 import OtpPannel from "./OtpPannel";
+import "./Register.scss";
 
 const Register = props => {
   const [registerData, setregisterData] = useState({
@@ -71,67 +72,78 @@ const Register = props => {
   if (getCookie("auth")) return <Redirect to="/create-question" />;
 
   return (
-    <div className="Register">
-      <h2>Register</h2>
+    <div className="root-container">
+    <div className="inner-container">
+    <div className="header">
+     Register</div>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="">First Name</label>
+          <label htmlFor="">First Name</label><br/>
           <input
             type="text"
             name="first_name"
+            className="login-input"
             placeholder="Jack"
             value={registerData.first_name}
             onChange={handleChange}
           />
-        </div>
+        </div><br/>
 
         <div>
-          <label htmlFor="">Last Name</label>
+          <label htmlFor="">Last Name</label><br/>
           <input
             type="text"
             name="last_name"
+            className="login-input"
             placeholder="Brown"
             value={registerData.last_name}
             onChange={handleChange}
           />
-        </div>
+        </div><br/>
+
 
         <div>
-          <label htmlFor="">Email</label>
+          <label htmlFor="">Email</label><br/>
           <input
             type="email"
             name="email"
+            className="login-input"
             placeholder="me@email.com"
             value={registerData.email}
             onChange={handleChange}
           />
-        </div>
+        </div><br/>
+
 
         <div>
-          <label htmlFor="">Phone Number</label>
+          <label htmlFor="">Phone Number</label><br/>
           <input
             type="text"
             name="username"
+            className="login-input"
             placeholder="Enter your phone number"
             value={registerData.username}
             onChange={handleChange}
           />
-        </div>
+        </div><br/>
+
 
         <div>
-          <label htmlFor="">Password</label>
+          <label htmlFor="">Password</label><br/>
           <input
             type="password"
             name="password"
+            className="login-input"
             placeholder="Enter your password"
             value={registerData.password}
             onChange={handleChange}
           />
-        </div>
+        </div><br/>
+
 
         <div>
-          <label htmlFor="">Gender</label>
-          <select name="gender" defaultValue="" onChange={handleChange}>
+          <label htmlFor="">Gender</label><br/>
+          <select className="login-input"  name="gender" defaultValue="" onChange={handleChange}>
             <option value="" defaultChecked disabled>
               Choose Gender
             </option>
@@ -139,9 +151,10 @@ const Register = props => {
             <option>Female</option>
             <option>Other</option>
           </select>
-        </div>
+        </div><br/>
 
-        <button type="submit">Register</button>
+
+        <button className="login-btn" type="submit">Register</button>
       </form>
 
       {otpPannel ? (
@@ -149,6 +162,7 @@ const Register = props => {
       ) : (
         ""
       )}
+     </div>
     </div>
   );
 };
