@@ -137,7 +137,7 @@ const Register = props => {
 
         <div>
           <label htmlFor="">Gender</label><br/>
-          <select className="login-input"  name="gender" defaultValue="" onChange={handleChange}>
+          <select  name="gender" defaultValue="" onChange={handleChange}>
             <option value="" defaultChecked disabled>
               Choose Gender
             </option>

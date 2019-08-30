@@ -3,6 +3,8 @@ import axios from "axios";
 
 // Config
 import config from "../../config";
+import "./OtpPannel.scss";
+
 
 const OtpPannel = ({ phoneNumber, sendData }) => {
   const [otp, setOtp] = useState("");
@@ -29,19 +31,20 @@ const OtpPannel = ({ phoneNumber, sendData }) => {
   };
 
   return (
-    <div className="OtpPannel">
+    <div >
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="">Otp</label>
+        <div class="otp_1">
+          <label htmlFor="">Otp</label><br/>
           <input
             type="text"
+            className="login-input"
             name="otp"
             placeholder="Enter OTP"
             value={otp}
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button className="login-btn" type="submit">Submit</button>
       </form>
     </div>
   );
