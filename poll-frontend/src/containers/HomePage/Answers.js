@@ -8,6 +8,7 @@ const Answers = ({ questionId }) => {
   const [answer, setAnswer] = useState("");
   const [addAnswer, setAddAnswer] = useState(0);
   const [answers, setAnswers] = useState([]);
+  const [showAnswers, setShowAnswers] = useState(false);
 
   const handleShowAnswers = async () => {
     console.log("questionsId", questionId);
@@ -15,11 +16,21 @@ const Answers = ({ questionId }) => {
       `http://localhost:8000/answer/?poll=${questionId}`
     );
 
+    if (showAnswers) {
+      return setShowAnswers(false)
+    }
+
     setAnswers(data);
+    
+    setShowAnswers(true);
+    if (!data.length)
+      setTimeout(() => {
+        setShowAnswers(false);
+      }, 2000);
   };
 
   const handleAddAnswer = () => {
-    setAddAnswer(1);
+   addAnswer> 0 ?  setAddAnswer(0):  setAddAnswer(1);
   };
 
   const handleAnswerSubmit = async e => {
@@ -69,7 +80,7 @@ const Answers = ({ questionId }) => {
         ""
       )}
 
-      {answers && answers.length ? (
+      {showAnswers && answers && answers.length ? (
         <Fragment>
           <p className="heading">Answers</p>
           {answers.map(v => (
@@ -78,8 +89,10 @@ const Answers = ({ questionId }) => {
             </div>
           ))}
         </Fragment>
-      ) : (
-        ""
+      ) : showAnswers &&(
+        <Alert>
+          No answers yet
+        </Alert>
       )}
     </Fragment>
   );

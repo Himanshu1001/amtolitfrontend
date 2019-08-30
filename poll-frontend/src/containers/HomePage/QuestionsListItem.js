@@ -41,7 +41,7 @@ const QuestionsListItem = ({ item }) => {
     let { data } = await axios.get(`http://localhost:8000/user/${id}/`);
     console.log("poll data:::", data);
 
-    setUser(data.user);
+    setUser(data);
   };
 
   useEffect(() => {
@@ -70,7 +70,9 @@ const QuestionsListItem = ({ item }) => {
             : user && user.first_name
             ? user.first_name
             : "Anonymous"}
+            {console.log('aaaa:::', user && user.first_name)}
         </span>
+        
         <span className="separator">•</span>
         <span className="timestamp">
           {moment(item.created_at).format("ll")}
