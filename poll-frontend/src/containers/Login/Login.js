@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 // cONFIG
 import config from "../../config";
@@ -42,42 +42,43 @@ const Login = props => {
 
   return (
     <div className="root-container">
-    <div className="inner-container">
-     <div className="header">
-     Login</div>
-     <div className="box">
-      <form onSubmit={handleSubmit}>
-      <div className="input-group">
-        
-          <label htmlFor="">Phone Number</label>
-          <input
-            type="text"
-            className="login-input"
-            name="username"
-            placeholder="Enter your phone number"
-            value={loginData.username}
-            onChange={handleChange}
-          />
-        </div>
-      
+      <div className="inner-container">
+        <div className="header">Login</div>
+        <div className="box">
+          <form onSubmit={handleSubmit}>
+            <div className="input-group">
+              <label htmlFor="">Phone Number</label>
+              <input
+                type="text"
+                className="login-input"
+                name="username"
+                placeholder="Enter your phone number"
+                value={loginData.username}
+                onChange={handleChange}
+              />
+            </div>
 
-       <div className="input-group">
-          <label htmlFor="">Password</label>
-          <input
-            type="password"
-            className="login-input"
-            name="password"
-            placeholder="Enter your password"
-            value={loginData.password}
-            onChange={handleChange}
-          />
-        </div>
+            <div className="input-group">
+              <label htmlFor="">Password</label>
+              <input
+                type="password"
+                className="login-input"
+                name="password"
+                placeholder="Enter your password"
+                value={loginData.password}
+                onChange={handleChange}
+              />
+            </div>
 
-        <button className="login-btn" type="submit">Login</button>
-      </form>
+            <button className="login-btn" type="submit">
+              Login
+            </button>
+          </form>
+          <br />
+          <Link to="/register">I am not a user, sign me up</Link>
+        </div>
       </div>
-      </div>
-      </div>
+    </div>
   );
 };
 

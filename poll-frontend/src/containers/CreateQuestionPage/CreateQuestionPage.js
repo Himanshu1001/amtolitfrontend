@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 // config
 import config from "../../config";
@@ -79,6 +80,8 @@ const CreateQuestionPage = params => {
 
     window.location.href = "/";
   };
+
+  if (!getCookie("auth")) return <Redirect to="/login" />;
 
   return (
     <div className="CreateQuestion">
