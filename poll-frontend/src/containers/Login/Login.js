@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 // cONFIG
 import config from "../../config";
+import { setCookie, getCookie } from "../../helper";
 
 import "./Login.scss";
 
@@ -25,11 +27,18 @@ const Login = props => {
 
     const { username, password } = loginData;
 
-    let { data } = await axios.post(
-      `${config.API_URL}/o/token/?grant_type=password&username=${username}&password=${password}&client_id=${config.CLIENT_ID}&client_secret=${config.CLIENT_SECRET}/`
-    );
+    let { data } = await axios.post(`${config.API_URL}/login/`, {
+      username,
+      password
+    });
+
     console.log("data:::", data);
+    setCookie("auth", JSON.stringify(data.user), 30);
+
+    window.location.href = "/create-question";
   };
+
+  if (getCookie("auth")) return <Redirect to="/create-question" />;
 
   return (
     <div className="Login">

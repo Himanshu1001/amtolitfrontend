@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 // cONFIG
 import config from "../../config";
+import { getCookie } from "../../helper";
+
+// Components
 import OtpPannel from "./OtpPannel";
 
 const Register = props => {
@@ -63,6 +67,8 @@ const Register = props => {
       console.log("exxx:::", ex, ex.reponse);
     }
   };
+
+  if (getCookie("auth")) return <Redirect to="/create-question" />;
 
   return (
     <div className="Register">
