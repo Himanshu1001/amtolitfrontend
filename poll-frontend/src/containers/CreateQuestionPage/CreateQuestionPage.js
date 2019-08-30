@@ -43,18 +43,23 @@ const CreateQuestionPage = params => {
   };
 
   return (
-    <div className="CreateQuestion">
-      <h3>Create Question</h3>
+    <div className="root-container">
+    <div className="inner-container">
+    <div className="header">
+     Create Question</div>
       <form onSubmit={handleSubmit}>
         <Textarea
           name="question_text"
+          className="login-input"
           value={questionData.question_text}
           onChange={handleQueChange}
         ></Textarea>
-        <input type="file" />
+        <div>
+        <input  type="file" />
+        </div>
         <div>
           <label htmlFor="">Poll Type</label>
-          <select name="poll_type" defaultValue="1" onChange={handleQueChange}>
+          <select className="poll-type" name="poll_type" defaultValue="1" onChange={handleQueChange}>
             {/* <option value="" defaultChecked disabled>
               Choose Poll Type
             </option> */}
@@ -88,8 +93,9 @@ const CreateQuestionPage = params => {
           <label htmlFor="isPublic">Public</label>
         </div>
 
-        <Button type="submit">Create</Button>
+        <Button className="login-btn" type="submit">Create</Button>
       </form>
+      </div>
     </div>
   );
 };
