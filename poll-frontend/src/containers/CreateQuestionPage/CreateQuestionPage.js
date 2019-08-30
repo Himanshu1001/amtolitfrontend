@@ -84,59 +84,74 @@ const CreateQuestionPage = params => {
   if (!getCookie("auth")) return <Redirect to="/login" />;
 
   return (
-    <div className="CreateQuestion">
-      <h3>Create Question</h3>
-      <form onSubmit={handleSubmit}>
-        <Textarea
-          name="question_text"
-          value={questionData.question_text}
-          onChange={handleQueChange}
-        ></Textarea>
-        <input type="file" />
-        <div>
-          <label htmlFor="">Poll Type</label>
-          <select name="poll_type" defaultValue="1" onChange={handleQueChange}>
-            <option value="0">MCQ</option>
-            <option value="1" defaultChecked>
-              Text Based
-            </option>
-          </select>
-        </div>
+    <div className="root-container">
+      <div className="inner-container">
+        <div className="header">Create Question</div>
+        <form onSubmit={handleSubmit}>
+          <Textarea
+            name="question_text"
+            className="login-input"
+            value={questionData.question_text}
+            onChange={handleQueChange}
+          ></Textarea>
+          <div>
+            <input type="file" />
+          </div>
+          <div>
+            <label htmlFor="">Poll Type</label>
+            <select
+              className="poll-type"
+              name="poll_type"
+              defaultValue="1"
+              onChange={handleQueChange}
+            >
+              {/* <option value="" defaultChecked disabled>
+              Choose Poll Type
+            </option> */}
+              <option value="0">MCQ</option>
+              <option value="1" defaultChecked>
+                Text Based
+              </option>
+            </select>
+          </div>
 
-        {questionData.poll_type === 0 ? (
-          <Mcq
-            choice={choice}
-            choices={choices}
-            setChoice={setChoice}
-            setChoices={setChoices}
-          />
-        ) : (
-          ""
-        )}
+          {questionData.poll_type === 0 ? (
+            <Mcq
+              choice={choice}
+              choices={choices}
+              setChoice={setChoice}
+              setChoices={setChoices}
+            />
+          ) : (
+            ""
+          )}
 
-        <div>
-          <input
-            id="anonymous"
-            type="checkbox"
-            name="anonymous"
-            checked={anonymous}
-            onChange={handleChange}
-          ></input>
-          <label htmlFor="anonymous">Anonymous</label>
-        </div>
+          <div>
+            <input
+              id="anonymous"
+              type="checkbox"
+              name="anonymous"
+              checked={anonymous}
+              onChange={handleChange}
+            ></input>
+            <label htmlFor="anonymous">Anonymous</label>
+          </div>
 
-        <div>
-          <input
-            type="checkbox"
-            name="isPublic"
-            checked={isPublic}
-            onChange={handleChange}
-          ></input>
-          <label htmlFor="isPublic">Public</label>
-        </div>
+          <div>
+            <input
+              type="checkbox"
+              name="isPublic"
+              checked={isPublic}
+              onChange={handleChange}
+            ></input>
+            <label htmlFor="isPublic">Public</label>
+          </div>
 
-        <Button type="submit">Create</Button>
-      </form>
+          <Button className="login-btn" type="submit">
+            Create
+          </Button>
+        </form>
+      </div>
     </div>
   );
 };
