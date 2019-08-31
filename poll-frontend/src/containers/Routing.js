@@ -7,7 +7,9 @@ import Home from "./HomePage";
 import Register from "./Register";
 import Login from "./Login";
 import QuestionPage from "./QuestionPage";
-import CreateQuestionPage from "./CreateQuestionPage";
+// import CreateQuestionPage from "./CreateQuestionPage";
+import CreateQuestionFullPage from "./CreateQuestionFullPage/CreateQuestionFullPage"
+import CreatePoll from "../containers/CreatePoll/CreatePoll"
 
 const BaseContainer = () => {
   const routes = [
@@ -28,7 +30,13 @@ const BaseContainer = () => {
       isPrivate: false,
       path: "/create-question",
       exact: true,
-      component: withRouter(CreateQuestionPage)
+      component: withRouter(CreateQuestionFullPage)
+    },
+    {
+      isPrivate: false,
+      path: "/create-poll",
+      exact: true,
+      component: withRouter(CreatePoll)
     },
     {
       isPrivate: false,

@@ -84,6 +84,8 @@ const CreateQuestionPage = params => {
   if (!getCookie("auth")) return <Redirect to="/login" />;
 
   return (
+    <div className="CreateQuestion">
+
     <div className="root-container">
       <div className="inner-container">
         <div className="header">Create Question</div>
@@ -152,6 +154,7 @@ const CreateQuestionPage = params => {
           </Button>
         </form>
       </div>
+    </div>
     </div>
   );
 };

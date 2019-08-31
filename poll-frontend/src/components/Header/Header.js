@@ -10,6 +10,8 @@ const header = React.memo(props => {
     window.location.href = "/login";
   };
 
+  
+
   return (
     <div>
       <div className="container">
@@ -30,7 +32,7 @@ const header = React.memo(props => {
           </div>
 
           <div className="col-md-8 text-center">
-            <span
+            {/* <span
               style={{
                 color: "#ffffff",
                 fontWeight: "600",
@@ -41,7 +43,7 @@ const header = React.memo(props => {
               <a href="#">
                 <FontAwesomeIcon icon="plus-circle" color="#ffffff" size="md" />
               </a>
-            </span>
+            </span> */}
 
             {/* <span
               style={{
@@ -56,7 +58,7 @@ const header = React.memo(props => {
               </a>
             </span> */}
 
-            <span
+            {/* <span
               style={{
                 color: "#ffffff",
                 fontWeight: "600",
@@ -67,7 +69,7 @@ const header = React.memo(props => {
               <a href="#">
                 <FontAwesomeIcon icon="user" color="#ffffff" size="md" />
               </a>
-            </span>
+            </span> */}
 
             <span
               style={{

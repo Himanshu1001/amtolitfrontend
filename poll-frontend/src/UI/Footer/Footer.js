@@ -28,7 +28,7 @@ const footer = props => {
                 Amtolit-2019
               </a>
               <a href="#" style={{ paddingLeft: "35px" }}>
-                Made with love in India
+                Made with love in India for those who love to share :)
               </a>
             </span>
           </div>

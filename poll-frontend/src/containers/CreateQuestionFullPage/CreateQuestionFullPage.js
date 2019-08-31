@@ -5,23 +5,23 @@ import React from "react";
 // import { getCookie } from "../../helper";
 
 // Components
-import QuestionsList from "./QuestionsList";
+
 import Header from "../../components/Header/Header";
 import Footer from "../../UI/Footer/Footer"
-import CreatePoll from "../CreatePoll/CreatePoll"
+import CreateQuestionPage from "../CreateQuestionPage";
 
-const Home = props => {
+
+const CreateQuestionFullPage = props => {
   // if (!getCookie("auth")) return <Redirect to="/login" />;
 
   return (
     <div className="Home">
       <Header />
-      <CreatePoll />
-      <QuestionsList />
+      <CreateQuestionPage />
       <Footer />
 
     </div>
   );
 };
 
-export default Home;
+export default CreateQuestionFullPage;
