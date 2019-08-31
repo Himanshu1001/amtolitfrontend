@@ -12,11 +12,12 @@ import Mcq from "./Mcq";
 
 // CSS
 import "./CreateQuestion.scss";
+import Dropzone from "react-dropzone";
+
 const CreateQuestionPage = params => {
   const [questionData, setQuestionData] = useState({
     question_text: "",
-    poll_image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRnlq_ULfQCgyOG7-2umjBD5ZrCvj3nl09oanM3Ue-lMrMfLZo5",
+    poll_image:'',
     poll_type: 1
   });
   const [anonymous, setAnonymous] = useState(false);
@@ -66,9 +67,15 @@ const CreateQuestionPage = params => {
     });
   };
 
+    const fileChangedHandler = event => {
+        console.log(event.target.files[0] );
+        setQuestionData({ ...questionData, ['poll_image']: event.target.files[0] });
+    }
+
+
+
   const handleSubmit = e => {
     e.preventDefault();
-
     let _questionData = {
       ...questionData,
       anonymous_user: anonymous,
@@ -94,10 +101,23 @@ const CreateQuestionPage = params => {
             name="question_text"
             className="login-input"
             value={questionData.question_text}
-            onChange={handleQueChange}
-          ></Textarea>
+            onChange={handleQueChange}>
+
+          </Textarea>
           <div>
-            <input type="file" />
+            <input type="file" onChange={fileChangedHandler}/>
+
+          </div>
+
+          <div>
+            {/*<Dropzone style={{    width:'100%' ,*/}
+                {/*height: '25vh',*/}
+                {/*borderWidth: '1px',*/}
+                {/*borderColor: 'rgb(102, 102, 102)',*/}
+                {/*borderStyle: 'solid',*/}
+                {/*borderRadius: '1px'}}>*/}
+              {/*<div>Add Here </div>*/}
+            {/*</Dropzone>*/}
           </div>
           <div>
             <label htmlFor="">Poll Type</label>

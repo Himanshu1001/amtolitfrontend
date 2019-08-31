@@ -1,0 +1,11 @@
+.login {
+    color: #70a1ff;
+}
+
+.login:hover {
+    color: #000;
+}
+
+.headerShadow {
+    border-bottom: 1px solid #70a1ff;
+}

@@ -1,8 +1,9 @@
-import React from "react";
+import React  from "react";
 import classes from "./Header.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { deleteCookie } from "../../helper";
+import {Link} from "react-router-dom";
 
 const header = React.memo(props => {
   const handleLogout = () => {
@@ -14,24 +15,27 @@ const header = React.memo(props => {
 
   return (
     <div>
-      <div className="container">
+      <div>
         <div
-          className="row"
+          className="row headerShadow"
+
           style={{
-            paddingTop: "20px",
-            backgroundColor: "#000",
-            height: "120px"
+            backgroundColor: "#fff",
+            height: "64px",
+              borderBottom: '1px solid #70a1ff'
           }}
         >
-          <div className="col-md-2 text-center">
-            <span
-              style={{ color: "#ffffff", fontWeight: "600", fontSize: "20px" }}
-            >
-              Atmolit
-            </span>
+
+          <div className="col-md-2" style={{paddingLeft:'2%' , display: 'flex', alignItems: 'center'}}>
+              <Link to={'/'}  style = {{color: 'inherit'}}>
+                <span
+                  style={{ color: "#70a1ff", fontWeight: "600", fontSize: "20px" }}>
+                  Atmolit
+                </span>
+              </Link>
           </div>
 
-          <div className="col-md-8 text-center">
+          <div className="col-md-10" style={{paddingRight:'2%',textAlign:'end', display: 'flex', alignItems: 'center', justifyContent:'flex-end'}}>
             {/* <span
               style={{
                 color: "#ffffff",
@@ -70,17 +74,18 @@ const header = React.memo(props => {
                 <FontAwesomeIcon icon="user" color="#ffffff" size="md" />
               </a>
             </span> */}
-
-            <span
-              style={{
-                color: "#ffffff",
-                fontWeight: "600",
-                fontSize: "20px",
-                marginLeft: "15px"
-              }}
-            >
-              <a href="#">Login</a>
-            </span>
+              <Link to={'/login'}  style = {{color: 'inherit'}}>
+                <span
+                  style={{
+                    color: "#ffffff",
+                    fontWeight: "600",
+                    fontSize: "20px",
+                    marginLeft: "15px"
+                  }}
+                >
+                  <a href="#" className='login'>Login</a>
+                </span>
+            </Link>
 
             <span
               style={{
@@ -91,14 +96,13 @@ const header = React.memo(props => {
               }}
               onClick={handleLogout}
             >
-              <a href="#">Logout</a>
+              <a href="#" className="login">Logout</a>
             </span>
           </div>
-
-          <div className="col-md-2 text-center" />
         </div>
       </div>
     </div>
   );
 });
 export default header;
+
