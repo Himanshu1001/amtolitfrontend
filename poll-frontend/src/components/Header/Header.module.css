@@ -1,5 +1,7 @@
 .login {
     color: #70a1ff;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .login:hover {

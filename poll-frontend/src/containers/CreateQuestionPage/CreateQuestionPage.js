@@ -25,6 +25,7 @@ const CreateQuestionPage = params => {
 
   const [choices, setChoices] = useState([]);
   const [choice, setChoice] = useState("");
+  const [selectedFile] = useState(null);
 
   const handleQueChange = ({ target }) => {
     let { name, value } = target;
@@ -66,13 +67,24 @@ const CreateQuestionPage = params => {
       sendChoices({ poll: data.id, choice_text: v.value });
     });
   };
-
+    
     const fileChangedHandler = event => {
         console.log(event.target.files[0] );
+        this.setState({
+          selectedFile: event.target.files[0]
+        })
         setQuestionData({ ...questionData, ['poll_image']: event.target.files[0] });
     }
 
+    const fileUploadHandler = () => {
+      const fd = new FormData();
+      fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
+      axios.post('', fd)
+      .then(res=>{
+        console.log(res);
+      }) ;
 
+    }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -106,6 +118,7 @@ const CreateQuestionPage = params => {
           </Textarea>
           <div>
             <input type="file" onChange={fileChangedHandler}/>
+            <button onClick={this.fileUploadHandler}>Upload this image</button>
 
           </div>
 

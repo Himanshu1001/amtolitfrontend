@@ -10,7 +10,6 @@ const footer = props => {
             <span
               style={{
                 color: "#68d1ef",
-                position: "fixed",
                 fontWeight: "600",
                 fontSize: "14px",
                 marginRight: "15px",
