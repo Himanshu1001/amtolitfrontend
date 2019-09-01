@@ -5,23 +5,24 @@ import {Link} from "react-router-dom";
 class CreatePoll extends Component {
   render() {
   	return (
-  		<div>
-			<div className="container" style={{paddingBottom: '4%'}}>
-				<div className="row" style={{paddingTop:"20px", height:"20px"}}>
+  		
+			<div className="container" style={{paddingBottom: '3%'}}>
+				<div className="row" style={{paddingTop:"20px",}}>
 					<div className="col-md-12 text-center">
 						<Link to={'/create-question'}  style = {{color: 'inherit'}}>
 							<Button
+							    class="login-btn"
 								type="submit"
 								variant="outline-primary"
-								size="lg"
-								style={{color: "#195998" , fontWeight: "600", fontSize: "20px", alignItems:"center", justifyContent:"center"}}>
+								size="small"
+								>
 								Log In to ask questions
 							</Button>
 						</Link>
 					</div>
 				</div>
 			</div>
-		</div>
+		
 
   		)
   }

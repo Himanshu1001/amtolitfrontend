@@ -4,7 +4,7 @@ import PollListItem from './PollListItem'
 
 const PollList = ({pollList}) => {
     return (
-        <div className="PollListItem"> 
+        <div > 
             {pollList.map((v) => <PollListItem key={v.id} item={v} />)}
         </div>
    )

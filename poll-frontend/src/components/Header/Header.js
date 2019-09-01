@@ -1,4 +1,5 @@
 import React  from "react";
+import{Nav, Navbar, NavItem, Badge, NavDropdown} from "react-bootstrap";
 import classes from "./Header.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -14,94 +15,24 @@ const header = React.memo(props => {
   
 
   return (
-    <div>
-      <div>
-        <div
-          className="row headerShadow"
-
-          style={{
-            backgroundColor: "#fff",
-            height: "64px",
-              borderBottom: '1px solid #70a1ff'
-          }}
-        >
-
-          <div className="col-md-2" style={{paddingLeft:'2%' , display: 'flex', alignItems: 'center'}}>
-              <Link to={'/'}  style = {{color: 'inherit'}}>
-                <span
-                  style={{ color: "#70a1ff", fontWeight: "600", fontSize: "20px" }}>
-                  Atmolit
-                </span>
-              </Link>
-          </div>
-
-          <div className="col-md-10" style={{paddingRight:'2%',textAlign:'end', display: 'flex', alignItems: 'center', justifyContent:'flex-end'}}>
-            {/* <span
-              style={{
-                color: "#ffffff",
-                fontWeight: "600",
-                fontSize: "20px",
-                marginRight: "15px"
-              }}
-            >
-              <a href="#">
-                <FontAwesomeIcon icon="plus-circle" color="#ffffff" size="md" />
-              </a>
-            </span> */}
-
-            {/* <span
-              style={{
-                color: "#ffffff",
-                fontWeight: "600",
-                fontSize: "20px",
-                marginRight: "15px"
-              }}
-            >
-              <a href="#">
-                <FontAwesomeIcon icon="bell" color="#ffffff" size="md" />
-              </a>
-            </span> */}
-
-            {/* <span
-              style={{
-                color: "#ffffff",
-                fontWeight: "600",
-                fontSize: "20px",
-                marginRight: "15px"
-              }}
-            >
-              <a href="#">
-                <FontAwesomeIcon icon="user" color="#ffffff" size="md" />
-              </a>
-            </span> */}
-              <Link to={'/login'}  style = {{color: 'inherit'}}>
-                <span
-                  style={{
-                    color: "#ffffff",
-                    fontWeight: "600",
-                    fontSize: "20px",
-                    marginLeft: "15px"
-                  }}
-                >
-                  <a href="#" className='login'>Login</a>
-                </span>
-            </Link>
-
-            <span
-              style={{
-                color: "#ffffff",
-                fontWeight: "600",
-                fontSize: "20px",
-                marginLeft: "15px"
-              }}
-              onClick={handleLogout}
-            >
-              <a href="#" className="login">Logout</a>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
+    
+    <Navbar className="navbar" collapseOnSelect>
+    <Navbar.Brand style={{color:"#000000", fontWeight:"800"}} href="#home">Amtolit</Navbar.Brand>
+    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+    <Navbar.Collapse id="responsive-navbar-nav">
+      <Nav className="mr-auto">
+        <Nav.Link href="#"></Nav.Link>
+        <Nav.Link href="#"></Nav.Link>
+      </Nav>
+      <Nav>
+        <Nav.Link style={{color:"#000000"}} href="#">Login</Nav.Link>
+        <Nav.Link style={{color:"#000000"}} href="#">
+          Log Out
+        </Nav.Link>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
+ 
   );
 });
 export default header;
